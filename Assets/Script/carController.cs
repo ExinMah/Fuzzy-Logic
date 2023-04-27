@@ -25,4 +25,13 @@ public class carController : MonoBehaviour
 
         transform.position = position;
     }
+
+    void OncollisionEnter2D (Collision2D collision)
+    {
+        if (collision.gameObject.tag == "AI Car")
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
