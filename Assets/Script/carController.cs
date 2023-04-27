@@ -5,6 +5,8 @@ using UnityEngine;
 public class carController : MonoBehaviour
 {
     public float carSpeed;
+    public float maxPox = 8.0f;
+
     Vector3 position;
 
     // Start is called before the first frame update
@@ -17,6 +19,9 @@ public class carController : MonoBehaviour
     void Update()
     {
         position.x += Input.GetAxis("Horizontal") * carSpeed * Time.deltaTime;
+
+        //Limit the value of variable into the min and max value 
+        position.x = Mathf.Clamp (position.x, -8.0f, 8.0f);
 
         transform.position = position;
     }
