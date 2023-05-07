@@ -3,20 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System;
 
-namespace FuzzyLogicSystem
+namespace Fuzzy_Logic
 {
 	// In fuzzy logic system, we can predict the size of list is fixed and changed infrequently.
 	// Using FlsList, memory allocation is minimized.
-	public class FlsList<T>
+	public class FuzzyLogicSystemList<T>
 	{
 		public delegate int CompareFunc(T left, T right);
-
-		#region Recyclable Buffers
-
-		/*
-		 * Reuse buffers 
-		 */
-
+		
 		// How many recyclable buffers can be stored
 		public int recyclableBuffersCapacity
 		{
@@ -29,7 +23,7 @@ namespace FuzzyLogicSystem
 				return recyclableBuffers.Capacity;
 			}
 		}
-		// Store not using buffers in this, reuse them when need.
+		
 		private List<T[]> _recyclableBuffers = null;
 		private List<T[]> recyclableBuffers
 		{
@@ -80,8 +74,6 @@ namespace FuzzyLogicSystem
 			}
 			return new T[size];
 		}
-
-		#endregion
 
 		private T[] _buffer;
 
@@ -295,12 +287,12 @@ namespace FuzzyLogicSystem
 		}
 
 		// When sorting itself, meanwhile, apply the new order to secondaryList.
-		public void Sort<T2>(CompareFunc comparer, FlsList<T2> secondaryList)
+		public void Sort<T2>(CompareFunc comparer, FuzzyLogicSystemList<T2> secondaryList)
         {
 			Sort_Internal(comparer, secondaryList);
         }
 
-		private void Sort_Internal<T2>(CompareFunc comparer, FlsList<T2> secondaryList)
+		private void Sort_Internal<T2>(CompareFunc comparer, FuzzyLogicSystemList<T2> secondaryList)
         {
 			if (comparer == null)
 			{
@@ -336,7 +328,7 @@ namespace FuzzyLogicSystem
 			}
 		}
 
-		private void Swap<T3>(FlsList<T3> list, int i, int j)
+		private void Swap<T3>(FuzzyLogicSystemList<T3> list, int i, int j)
         {
 			T3 temp = list[i];
 			list[i] = list[j];

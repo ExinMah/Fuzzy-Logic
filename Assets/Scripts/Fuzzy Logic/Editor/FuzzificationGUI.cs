@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace FuzzyLogicSystem.Editor
+namespace Fuzzy_Logic.Editor
 {
     public class FuzzificationGUI : IGUI
     {
@@ -26,7 +26,7 @@ namespace FuzzyLogicSystem.Editor
             }
         }
 
-        private FlsList<Vector2> positionList = new FlsList<Vector2>();
+        private FuzzyLogicSystemList<Vector2> positionList = new FuzzyLogicSystemList<Vector2>();
 
         public FuzzificationGUI(Fuzzification fuzzification)
         {

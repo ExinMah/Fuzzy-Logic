@@ -3,72 +3,11 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-namespace FuzzyLogicSystem
+namespace Fuzzy_Logic
 {
     [Serializable]
     public class Defuzzification : Fuzzification
     {
-        /*
-          How to calculate output of defuzzification?
-
-          1. Place some sample points with fixed step.
-                      ---------------    -------------
-                     /               \  /             \
-                    /                 \/               \
-                   /                  /\                \
-                  /                  /  \                \
-                 /                  /    \                \
-                /                  /      \                \
-            *  /____*________*____/___*____\__*______*______*      *
-
-          2. Make vertical lines through these sample points.
-            |       | -------|-------|   -----|------|      |      |
-            |       |/       |       |  /     |      |\     |      |
-            |       |        |       |\/      |      | \    |      |
-            |      /|        |       |/\      |      |  \   |      |
-            |     / |        |       |  \     |      |   \  |      |
-            |    /  |        |      /|   \    |      |    \ |      |
-            |   /   |        |     / |    \   |      |     \|      |
-            *  /____*________*____/__*_____\__*______*______*      *
-
-          3. Calculate intersection points of vertical line and trapezoids.
-            |       | -------*-------|   -----*------*      |      |
-            |       |/       |       *  /     |      |\     |      |
-            |       *        |       |\/      |      | \    |      |
-            |      /|        |       |/\      |      |  \   |      |
-            |     / |        |       |  \     |      |   \  |      |
-            |    /  |        |      /|   \    |      |    \ |      |
-            |   /   |        |     / |    \   |      |     \|      |
-            *  /____*________*____/__*_____\__*______*______*      *
-
-          4. Connect intersections and sample points to make a approximate shape.
-             In this figure, I can't connect points with any character, so I use "-" instead.
-             Please keep in mind, connect points with straight lines.
-                          ---*---         ----*------*     
-                       ---       ----*----            \     
-                    *--                                \   
-                    |                                   \  
-                    |                                    \ 
-                    |                                     \ 
-                    |                                      \
-                    *________*_______*________*______*______*     
-
-          5. As you can see the figure above, due to less sample points, this shape is very imprecise.
-             To solve this problem, We can add more sample points to get a very approximate shape.
-
-          6. Using these points, we can calculate the barycenter of this shape.
-             The barycenter is the output of defuzzification.
-                          ---*---         ----*------*     
-                       ---       ----*----            \     
-                    *--                                \   
-                    |                                   \  
-                    |                   *barycenter      \ 
-                    |                                     \ 
-                    |                                      \
-                    *________*_______*________*______*______*    
-
-         */
-
         // Editor only gui
         private IGUI _gui = null;
         public IGUI gui
@@ -83,66 +22,66 @@ namespace FuzzyLogicSystem
             }
         }
 
-        private FlsList<Vector2> _bottomPoints = null;
-        private FlsList<Vector2> bottomPoints
+        private FuzzyLogicSystemList<Vector2> _bottomPoints = null;
+        private FuzzyLogicSystemList<Vector2> bottomPoints
         {
             get
             {
                 if (_bottomPoints == null)
                 {
-                    _bottomPoints = new FlsList<Vector2>();
+                    _bottomPoints = new FuzzyLogicSystemList<Vector2>();
                 }
                 return _bottomPoints;
             }
         }
 
-        private FlsList<Vector2> _bottomPositions = null;
-        private FlsList<Vector2> bottomPositions
+        private FuzzyLogicSystemList<Vector2> _bottomPositions = null;
+        private FuzzyLogicSystemList<Vector2> bottomPositions
         {
             get
             {
                 if (_bottomPositions == null)
                 {
-                    _bottomPositions = new FlsList<Vector2>();
+                    _bottomPositions = new FuzzyLogicSystemList<Vector2>();
                 }
                 return _bottomPositions;
             }
         }
 
-        private FlsList<Vector2> _shapePoints = null;
-        private FlsList<Vector2> shapePoints
+        private FuzzyLogicSystemList<Vector2> _shapePoints = null;
+        private FuzzyLogicSystemList<Vector2> shapePoints
         {
             get
             {
                 if (_shapePoints == null)
                 {
-                    _shapePoints = new FlsList<Vector2>();
+                    _shapePoints = new FuzzyLogicSystemList<Vector2>();
                 }
                 return _shapePoints;
             }
         }
 
-        private FlsList<Vector2> _shapePositions = null;
-        private FlsList<Vector2> shapePositions
+        private FuzzyLogicSystemList<Vector2> _shapePositions = null;
+        private FuzzyLogicSystemList<Vector2> shapePositions
         {
             get
             {
                 if (_shapePositions == null)
                 {
-                    _shapePositions = new FlsList<Vector2>();
+                    _shapePositions = new FuzzyLogicSystemList<Vector2>();
                 }
                 return _shapePositions;
             }
         }
 
-        private FlsList<float> _sampleValues = null;
-        private FlsList<float> sampleValues
+        private FuzzyLogicSystemList<float> _sampleValues = null;
+        private FuzzyLogicSystemList<float> sampleValues
         {
             get
             {
                 if (_sampleValues == null)
                 {
-                    _sampleValues = new FlsList<float>();
+                    _sampleValues = new FuzzyLogicSystemList<float>();
                 }
                 return _sampleValues;
             }
@@ -309,7 +248,7 @@ namespace FuzzyLogicSystem
             return GetTrapezoid(0).ConvertValuesToPos(outputValue.x, outputValue.y, originalPos, xAxisMaxPos, yAxisMaxPos);
         }
 
-        private Vector2 GetBarycenterPoint(FlsList<Vector2> mPoints)
+        private Vector2 GetBarycenterPoint(FuzzyLogicSystemList<Vector2> mPoints)
         {
             float area = 0.0f;
             float Gx = 0.0f, Gy = 0.0f;

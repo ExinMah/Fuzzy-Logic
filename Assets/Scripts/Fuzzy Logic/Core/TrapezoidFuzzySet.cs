@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-namespace FuzzyLogicSystem
+namespace Fuzzy_Logic
 {
     // A Trapezoid
     //      *----*

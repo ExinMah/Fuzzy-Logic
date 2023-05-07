@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-namespace FuzzyLogicSystem
+namespace Fuzzy_Logic
 {
     [Serializable]
     public class Fuzzification
@@ -112,42 +112,42 @@ namespace FuzzyLogicSystem
         private List<TrapezoidFuzzySet> trapezoids = new List<TrapezoidFuzzySet>();
 
         // x and y component of each item is a value between minValue and maxValue
-        private FlsList<Vector2> _intersections_values = null;
-        private FlsList<Vector2> intersections_values
+        private FuzzyLogicSystemList<Vector2> _intersections_values = null;
+        private FuzzyLogicSystemList<Vector2> intersections_values
         {
             get
             {
                 if (_intersections_values == null)
                 {
-                    _intersections_values = new FlsList<Vector2>();
+                    _intersections_values = new FuzzyLogicSystemList<Vector2>();
                 }
                 return _intersections_values;
             }
         }
 
         // trapezoid of each intersection point
-        private FlsList<TrapezoidFuzzySet> _intersections_trapezoids = null;
-        private FlsList<TrapezoidFuzzySet> intersections_trapezoids
+        private FuzzyLogicSystemList<TrapezoidFuzzySet> _intersections_trapezoids = null;
+        private FuzzyLogicSystemList<TrapezoidFuzzySet> intersections_trapezoids
         {
             get
             {
                 if (_intersections_trapezoids == null)
                 {
-                    _intersections_trapezoids = new FlsList<TrapezoidFuzzySet>();
+                    _intersections_trapezoids = new FuzzyLogicSystemList<TrapezoidFuzzySet>();
                 }
                 return _intersections_trapezoids;
             }
         }
 
         // convert values to positions in coordinate
-        private FlsList<Vector2> _intersections_positions = null;
-        private FlsList<Vector2> intersections_positions
+        private FuzzyLogicSystemList<Vector2> _intersections_positions = null;
+        private FuzzyLogicSystemList<Vector2> intersections_positions
         {
             get
             {
                 if (_intersections_positions == null)
                 {
-                    _intersections_positions = new FlsList<Vector2>();
+                    _intersections_positions = new FuzzyLogicSystemList<Vector2>();
                 }
                 return _intersections_positions;
             }
@@ -276,10 +276,7 @@ namespace FuzzyLogicSystem
             CheckIndexOfTrapezoid(index);
             return trapezoids[index];
         }
-
-        // Minimize value on x-axis is 0 normally and maximize value on x-axis is defined by a field named "maxValue".
-        // MinExtensionScale is 0 means minimize value on x-axis is 0=>(-maxValue * 0)
-        // MinExtensionScale is 0.5 means minimize value on x-axis is (-maxValue * 0.5)
+        
         public virtual float MinExtensionScale()
         {
             return 0;
@@ -289,10 +286,7 @@ namespace FuzzyLogicSystem
         {
             return -maxValue * MinExtensionScale();
         }
-
-        // Maximize value on x-axis is defined by a field name "maxValue" and minimize value on x-axis is 0 normally.
-        // MaxExtensionScale is 0 means maximize value on x-axis is maxValue=>((1 + 0) * maxValue).
-        // MaxExtensionScale is 0.5 means maxmize value on x-axis is ((1 + 0.5) * maxValue)
+        
         public virtual float MaxExtensionScale()
         {
             return 0;
@@ -303,7 +297,6 @@ namespace FuzzyLogicSystem
             return maxValue * (1 + MaxExtensionScale());
         }
 
-        // See comment of TestIntersectionPositionsOfBaseLineAndTrapezoids
         public void TestIntersectionValuesOfBaseLineAndTrapozoids(out Vector2[] o_intersectionValues, out TrapezoidFuzzySet[] o_intersectionTrapezoids)
         {
             intersections_values.Clear();
@@ -340,13 +333,7 @@ namespace FuzzyLogicSystem
             o_intersectionValues = intersections_values.ToArray();
             o_intersectionTrapezoids = intersections_trapezoids.ToArray();
         }
-
-        //       *--* (peakPointValue, height)
-        //      /    \ 
-        //     /      * (intersectionValueX, intersectionValueY)
-        //    /       |\
-        //   *--------*-* (footPointValue, 0)
-        //        (value, 0)
+        
         private void TestIntersectionValues(float peakPointValue, float footPointValue, float value, float height, out float intersectionValueX, out float intersectionValueY)
         {
             Vector2 v = new Vector2(peakPointValue - footPointValue, height - 0);
@@ -354,21 +341,7 @@ namespace FuzzyLogicSystem
             intersectionValueX = footPointValue + v.x;
             intersectionValueY = v.y;
         }
-
-        //  ^        | 
-        //  |-----   |-----
-        //  |     \  *a   |
-        //  |      \/|    |
-        //  |      /\|    |
-        //  |     /  *b   |
-        //  |    /   |\   |
-        //  o--------*------->
-        //        value
-        // BaseLine start at the position of value and end to infinite upward direction.
-        // This function is calculating all intersections of baseline and trapezoids.
-        // In this figure, is a and b.
-        // Before invoke this function, you should invoke TestIntersectionValuesOfBaseLineAndTrapozoids firstly.
-        // This function is just convert values to positions.
+        
         public void TestIntersectionPositionsOfBaseLineAndTrapezoids(Vector2 originalPos, Vector2 xAxisMaxPos, Vector2 yAxisMaxPos, out Vector2[] intersectionPositions, out TrapezoidFuzzySet[] intersectionTrapezoids)
         {
             intersections_positions.Clear();
@@ -380,15 +353,6 @@ namespace FuzzyLogicSystem
             intersectionTrapezoids = intersections_trapezoids.ToArray();
         }
 
-        //  ^        | 
-        //  |        *pEnd
-        //  |        | 
-        //  |        |    
-        //  |        |    
-        //  |        |   
-        //  |        |   
-        //  o--------*------->
-        //        value(pStart)
         public void BaseLinePositions(Vector2 originalPos, Vector2 xAxisMaxPos, Vector2 yAxisMaxPos, out Vector2 pStart, out Vector2 pEnd)
         {
             pStart = trapezoids[0].ConvertValuesToPos(value, 0, originalPos, xAxisMaxPos, yAxisMaxPos);

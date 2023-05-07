@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-namespace FuzzyLogicSystem
+namespace Fuzzy_Logic
 {
     [Serializable]
     public class Inference
@@ -133,31 +133,7 @@ namespace FuzzyLogicSystem
             this.guid = guid;
         }
 
-        /*
-          When leftSideInputGUID or rightSideInputGUID of this inference(eg named A) is another inference(eg named B),
-          meanwhile, leftSideInputGUID or rightSideInputGUID of another inference(named B) is set as this inference(named A) directly or linked indirectly,
-          we can call this case is cycle reference.
-
-          Cycle reference will cause program find the source of data flow on and on.
-          It will never exit until stack overflow. You can also think is as a endless loop util it use up all resources of computer.
-          Just like code "while(true){ allocate memory and calculate here }".
-
-          This function is used to find out cycle reference. It will return true if cycle reference is existed, otherwise return false.
-
-          Figure of Cycle Reference:
-
-              A -
-              ^ |
-              |_|           
-
-              A -> B
-              ^    |
-              |____|
-
-              A -> B -> C -> D
-              ^              |
-              |______________|
-        */
+        
         public bool IsCycleReference()
         {
             return IsCycleReference_Internal(guid);

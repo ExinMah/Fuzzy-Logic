@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AICarDestroyer : MonoBehaviour
 {
-    void OnCollisionEnter2D (Collision2D collision)
+    void OnTriggerEnter (Collider collision)
     {
         if (collision.gameObject.tag == "AI Car")
         {

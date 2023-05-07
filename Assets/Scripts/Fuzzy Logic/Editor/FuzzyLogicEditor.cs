@@ -6,11 +6,11 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.ShortcutManagement;
 
-namespace FuzzyLogicSystem.Editor
+namespace Fuzzy_Logic.Editor
 {
     public class FuzzyLogicEditor : EditorWindow
     {
-        public const string PERSISTENT_DATA_PATH = "Assets/FuzzyLogic/Data/";
+        public const string PERSISTENT_DATA_PATH = "Assets/Scripts/Fuzzy Logic/Data/";
 
         public const string DEFAULT = "default.bytes";
 
@@ -433,9 +433,9 @@ namespace FuzzyLogicSystem.Editor
 
         #region EditorGUI of all fuzzyLogics list
 
-        private FlsList<string> allFuzzyLogicsNames = new FlsList<string>();
+        private FuzzyLogicSystemList<string> allFuzzyLogicsNames = new FuzzyLogicSystemList<string>();
 
-        private FlsList<string> allFuzzyLogicsGUIDs = new FlsList<string>();
+        private FuzzyLogicSystemList<string> allFuzzyLogicsGUIDs = new FuzzyLogicSystemList<string>();
 
         private GUIStyle _refreshButtonStyle;
         private GUIStyle refreshButtonStyle

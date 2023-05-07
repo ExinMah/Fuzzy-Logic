@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEditor;
 
-namespace FuzzyLogicSystem.Editor
+namespace Fuzzy_Logic.Editor
 {
     public class GUIUtils
     {

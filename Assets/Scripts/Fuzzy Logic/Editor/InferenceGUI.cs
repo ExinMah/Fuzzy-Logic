@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEditor;
 
-namespace FuzzyLogicSystem.Editor
+namespace Fuzzy_Logic.Editor
 {
     public class InferenceGUI : IGUI
     {
@@ -29,9 +29,9 @@ namespace FuzzyLogicSystem.Editor
 
         private Inference inference = null;
 
-        private FlsList<string> inputGuids = new FlsList<string>();
+        private FuzzyLogicSystemList<string> inputGuids = new FuzzyLogicSystemList<string>();
 
-        private FlsList<string> inputLabels = new FlsList<string>();
+        private FuzzyLogicSystemList<string> inputLabels = new FuzzyLogicSystemList<string>();
 
         private Highlights outputHighlights = new Highlights();
 

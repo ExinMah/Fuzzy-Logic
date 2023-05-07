@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace FuzzyLogicSystem.Editor
+namespace Fuzzy_Logic.Editor
 {
     public class FuzzyLogicGUI : IGUI
     {

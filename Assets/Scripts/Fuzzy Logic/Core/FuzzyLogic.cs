@@ -4,13 +4,11 @@ using System;
 using System.Text;
 using UnityEngine;
 
-namespace FuzzyLogicSystem
+namespace Fuzzy_Logic
 {
     [Serializable]
     public class FuzzyLogic
     {
-        #region Registered fuzzylogics
-
         // Store all registered fuzzyLogics here.
         private static List<FuzzyLogic> allRegisteredFuzzyLogics = new List<FuzzyLogic>();
 
@@ -154,11 +152,7 @@ namespace FuzzyLogicSystem
 
             return false;
         }
-
-        #endregion
-
-        #region Serialize and Deserialize
-
+        
         private static byte[] _header = null;
         public static byte[] header
         {
@@ -240,7 +234,6 @@ namespace FuzzyLogicSystem
             }
         }
 
-        #endregion
 
         // Editor only gui
         private IGUI _gui = null;
