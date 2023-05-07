@@ -1,0 +1,318 @@
+´ÕÔ4Vxê{
+    "fuzzifications": [
+        {
+            "_division": 10,
+            "_maxValue": 100,
+            "_guid": "24cfd95c-7cc8-4325-92be-d6f6b60d86e7",
+            "_name": "previous_lifetime",
+            "_value": 0.0,
+            "trapezoids": [
+                {
+                    "_guid": "91c8a3e7-b0cb-48b9-a51a-16938cf7ddac",
+                    "_color": {
+                        "r": 1.0,
+                        "g": 0.0,
+                        "b": 0.0,
+                        "a": 1.0
+                    },
+                    "_name": "short",
+                    "_peakPointLeftValue": 0.0,
+                    "_footPointLeftValue": 0.0,
+                    "_peakPointRightValue": 25.0,
+                    "_footPointRightValue": 32.5
+                },
+                {
+                    "_guid": "f4e4348c-2892-4191-ba21-66bd972cbcc4",
+                    "_color": {
+                        "r": 0.6641509532928467,
+                        "g": 0.6643595099449158,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "_name": "medium",
+                    "_peakPointLeftValue": 32.5,
+                    "_footPointLeftValue": 25.0,
+                    "_peakPointRightValue": 67.5,
+                    "_footPointRightValue": 75.0
+                },
+                {
+                    "_guid": "bb7e9c46-5499-4065-93ef-f75bbed5ee07",
+                    "_color": {
+                        "r": 0.0,
+                        "g": 1.0,
+                        "b": 0.0,
+                        "a": 1.0
+                    },
+                    "_name": "long",
+                    "_peakPointLeftValue": 75.0,
+                    "_footPointLeftValue": 67.5,
+                    "_peakPointRightValue": 100.0,
+                    "_footPointRightValue": 100.0
+                }
+            ]
+        },
+        {
+            "_division": 10,
+            "_maxValue": 100,
+            "_guid": "ed482a1d-06f6-48bf-b3b0-85d4ae88e9fe",
+            "_name": "distance",
+            "_value": 0.0,
+            "trapezoids": [
+                {
+                    "_guid": "11902848-23b0-4595-857e-6a4e508cf556",
+                    "_color": {
+                        "r": 1.0,
+                        "g": 0.0,
+                        "b": 0.0,
+                        "a": 1.0
+                    },
+                    "_name": "near",
+                    "_peakPointLeftValue": 0.0,
+                    "_footPointLeftValue": 0.0,
+                    "_peakPointRightValue": 25.0,
+                    "_footPointRightValue": 32.5
+                },
+                {
+                    "_guid": "b157b48e-4a67-4cbe-ab13-affddbc6af14",
+                    "_color": {
+                        "r": 0.8346638679504395,
+                        "g": 0.7865645885467529,
+                        "b": 0.9677544832229614,
+                        "a": 1.0
+                    },
+                    "_name": "medium",
+                    "_peakPointLeftValue": 32.5,
+                    "_footPointLeftValue": 25.0,
+                    "_peakPointRightValue": 67.5,
+                    "_footPointRightValue": 75.0
+                },
+                {
+                    "_guid": "03fc40fe-e6ac-4563-a28e-756c9cae366e",
+                    "_color": {
+                        "r": 0.0,
+                        "g": 1.0,
+                        "b": 0.0,
+                        "a": 1.0
+                    },
+                    "_name": "far",
+                    "_peakPointLeftValue": 75.0,
+                    "_footPointLeftValue": 67.5,
+                    "_peakPointRightValue": 100.0,
+                    "_footPointRightValue": 100.0
+                }
+            ]
+        }
+    ],
+    "_defuzzitication": {
+        "_division": 10,
+        "_maxValue": 100,
+        "_guid": "0f814b84-a3c5-44d7-bd39-b162ae3ab63f",
+        "_name": "speed",
+        "_value": 0.0,
+        "trapezoids": [
+            {
+                "_guid": "949f005e-0aaa-4392-b493-2e1fc69356d3",
+                "_color": {
+                    "r": 1.0,
+                    "g": 0.0,
+                    "b": 0.0,
+                    "a": 1.0
+                },
+                "_name": "slow",
+                "_peakPointLeftValue": 0.0,
+                "_footPointLeftValue": 0.0,
+                "_peakPointRightValue": 25.0,
+                "_footPointRightValue": 50.0
+            },
+            {
+                "_guid": "d02f0472-771a-4042-aeff-33a17fb6e60e",
+                "_color": {
+                    "r": 0.714528501033783,
+                    "g": 0.1520623117685318,
+                    "b": 0.7225620150566101,
+                    "a": 1.0
+                },
+                "_name": "medium",
+                "_peakPointLeftValue": 32.5,
+                "_footPointLeftValue": 25.0,
+                "_peakPointRightValue": 67.5,
+                "_footPointRightValue": 75.0
+            },
+            {
+                "_guid": "30dabaa9-4bb1-4743-a9f1-5cc6dbcd30c0",
+                "_color": {
+                    "r": 0.7370163798332214,
+                    "g": 0.7544690370559692,
+                    "b": 0.06199897080659866,
+                    "a": 1.0
+                },
+                "_name": "fast",
+                "_peakPointLeftValue": 75.0,
+                "_footPointLeftValue": 50.0,
+                "_peakPointRightValue": 100.0,
+                "_footPointRightValue": 100.0
+            },
+            {
+                "_guid": "5b6d846f-1a2c-440c-bb29-5f82bdbb612a",
+                "_color": {
+                    "r": 0.48774629831314089,
+                    "g": 0.7281699776649475,
+                    "b": 0.20198121666908265,
+                    "a": 1.0
+                },
+                "_name": "slow",
+                "_peakPointLeftValue": 0.0,
+                "_footPointLeftValue": 0.0,
+                "_peakPointRightValue": 25.0,
+                "_footPointRightValue": 50.0
+            },
+            {
+                "_guid": "bc5d95d2-35e1-47c6-8372-4c4f95fec743",
+                "_color": {
+                    "r": 0.3476548492908478,
+                    "g": 0.7620954513549805,
+                    "b": 0.079124815762043,
+                    "a": 1.0
+                },
+                "_name": "medium",
+                "_peakPointLeftValue": 32.5,
+                "_footPointLeftValue": 25.0,
+                "_peakPointRightValue": 67.5,
+                "_footPointRightValue": 75.0
+            },
+            {
+                "_guid": "cfdb74d1-c368-4f1c-9a68-fac877eab1cd",
+                "_color": {
+                    "r": 0.5316683650016785,
+                    "g": 0.9342011213302612,
+                    "b": 0.966153621673584,
+                    "a": 1.0
+                },
+                "_name": "fast",
+                "_peakPointLeftValue": 75.0,
+                "_footPointLeftValue": 50.0,
+                "_peakPointRightValue": 100.0,
+                "_footPointRightValue": 100.0
+            },
+            {
+                "_guid": "0c44f0f5-13ac-4f1c-b0af-0ff4004da31d",
+                "_color": {
+                    "r": 0.42631906270980837,
+                    "g": 0.3479682505130768,
+                    "b": 0.09181702882051468,
+                    "a": 1.0
+                },
+                "_name": "slow",
+                "_peakPointLeftValue": 0.0,
+                "_footPointLeftValue": 0.0,
+                "_peakPointRightValue": 25.0,
+                "_footPointRightValue": 50.0
+            },
+            {
+                "_guid": "8a5c3e94-11ab-46f9-af22-b256fb80aa6e",
+                "_color": {
+                    "r": 0.04707349091768265,
+                    "g": 0.4167928099632263,
+                    "b": 0.2728016674518585,
+                    "a": 1.0
+                },
+                "_name": "medium",
+                "_peakPointLeftValue": 32.5,
+                "_footPointLeftValue": 25.0,
+                "_peakPointRightValue": 67.5,
+                "_footPointRightValue": 75.0
+            },
+            {
+                "_guid": "04ae3bcd-f810-401b-8df0-daa03ef237f8",
+                "_color": {
+                    "r": 0.0,
+                    "g": 1.0,
+                    "b": 0.0,
+                    "a": 1.0
+                },
+                "_name": "fast",
+                "_peakPointLeftValue": 75.0,
+                "_footPointLeftValue": 50.0,
+                "_peakPointRightValue": 100.0,
+                "_footPointRightValue": 100.0
+            }
+        ],
+        "_subdivision": 20
+    },
+    "inferences": [
+        {
+            "_guid": "35ac76b0-8505-484b-818f-dca41e7bba87",
+            "_name": "rule1",
+            "_leftSideInputGUID": "91c8a3e7-b0cb-48b9-a51a-16938cf7ddac",
+            "_rightSideInputGUID": "11902848-23b0-4595-857e-6a4e508cf556",
+            "_outputGUID": "949f005e-0aaa-4392-b493-2e1fc69356d3",
+            "_op": 1
+        },
+        {
+            "_guid": "fc3c21eb-8a0a-489a-b984-4c87862f5362",
+            "_name": "rule2",
+            "_leftSideInputGUID": "91c8a3e7-b0cb-48b9-a51a-16938cf7ddac",
+            "_rightSideInputGUID": "b157b48e-4a67-4cbe-ab13-affddbc6af14",
+            "_outputGUID": "d02f0472-771a-4042-aeff-33a17fb6e60e",
+            "_op": 1
+        },
+        {
+            "_guid": "27d98e24-1472-493b-a2d3-cc50e62e1ae6",
+            "_name": "rule3",
+            "_leftSideInputGUID": "91c8a3e7-b0cb-48b9-a51a-16938cf7ddac",
+            "_rightSideInputGUID": "03fc40fe-e6ac-4563-a28e-756c9cae366e",
+            "_outputGUID": "04ae3bcd-f810-401b-8df0-daa03ef237f8",
+            "_op": 1
+        },
+        {
+            "_guid": "8207e220-8aee-42a0-a4f0-ac1f63f783cd",
+            "_name": "rule4",
+            "_leftSideInputGUID": "f4e4348c-2892-4191-ba21-66bd972cbcc4",
+            "_rightSideInputGUID": "11902848-23b0-4595-857e-6a4e508cf556",
+            "_outputGUID": "5b6d846f-1a2c-440c-bb29-5f82bdbb612a",
+            "_op": 1
+        },
+        {
+            "_guid": "f5cd4b67-62c3-4a4d-b56f-f6c4201c7016",
+            "_name": "rule5",
+            "_leftSideInputGUID": "f4e4348c-2892-4191-ba21-66bd972cbcc4",
+            "_rightSideInputGUID": "b157b48e-4a67-4cbe-ab13-affddbc6af14",
+            "_outputGUID": "bc5d95d2-35e1-47c6-8372-4c4f95fec743",
+            "_op": 1
+        },
+        {
+            "_guid": "a76571ab-d52b-4f84-8137-b78eb8bb5285",
+            "_name": "rule6",
+            "_leftSideInputGUID": "f4e4348c-2892-4191-ba21-66bd972cbcc4",
+            "_rightSideInputGUID": "03fc40fe-e6ac-4563-a28e-756c9cae366e",
+            "_outputGUID": "30dabaa9-4bb1-4743-a9f1-5cc6dbcd30c0",
+            "_op": 1
+        },
+        {
+            "_guid": "3be7ca6b-04c1-474c-a212-c6acb69698f6",
+            "_name": "rule7",
+            "_leftSideInputGUID": "bb7e9c46-5499-4065-93ef-f75bbed5ee07",
+            "_rightSideInputGUID": "11902848-23b0-4595-857e-6a4e508cf556",
+            "_outputGUID": "0c44f0f5-13ac-4f1c-b0af-0ff4004da31d",
+            "_op": 1
+        },
+        {
+            "_guid": "f06bbeef-93dc-4b7e-be16-5bbc14964399",
+            "_name": "rule8",
+            "_leftSideInputGUID": "bb7e9c46-5499-4065-93ef-f75bbed5ee07",
+            "_rightSideInputGUID": "b157b48e-4a67-4cbe-ab13-affddbc6af14",
+            "_outputGUID": "8a5c3e94-11ab-46f9-af22-b256fb80aa6e",
+            "_op": 1
+        },
+        {
+            "_guid": "5130a623-f66b-4bc8-a061-a7444af77309",
+            "_name": "rule9",
+            "_leftSideInputGUID": "bb7e9c46-5499-4065-93ef-f75bbed5ee07",
+            "_rightSideInputGUID": "03fc40fe-e6ac-4563-a28e-756c9cae366e",
+            "_outputGUID": "cfdb74d1-c368-4f1c-9a68-fac877eab1cd",
+            "_op": 1
+        }
+    ],
+    "_guid": "e464ddbf-d6f2-468c-a7d5-7e81a720865c",
+    "_name": "default"
+}
