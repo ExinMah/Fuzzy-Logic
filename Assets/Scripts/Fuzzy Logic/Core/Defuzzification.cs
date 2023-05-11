@@ -108,7 +108,6 @@ namespace Fuzzy_Logic
             set
             {
                 _value = value;
-                // Don't clamp it in defuzzification
             }
         }
 
@@ -224,8 +223,6 @@ namespace Fuzzy_Logic
             return GetBarycenterPoint(shapePoints);
         }
 
-        // Before invoke this function, you should invoke OutputValue firstly.
-        // This function is just convert values to positions.
         public Vector2 OutputPosition(Vector2 outputValue, Vector2 originalPos, Vector2 xAxisMaxPos, Vector2 yAxisMaxPos, out Vector2[] o_shapePositions, out Vector2[] o_bottomPositions)
         {
             shapePositions.Clear();

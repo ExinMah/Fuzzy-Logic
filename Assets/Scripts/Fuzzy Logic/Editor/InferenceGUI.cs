@@ -62,11 +62,11 @@ namespace Fuzzy_Logic.Editor
                 EditorGUILayout.EndVertical();
 
 
-                if (inference.op == Inference.OP.And || inference.op == Inference.OP.Or || inference.op == Inference.OP._I)
+                if (inference.op == Inference.OP.And || inference.op == Inference.OP.Or || inference.op == Inference.OP.Ignore)
                 {
                     DrawOneSideInput(inference, true);
                     DrawOP(inference);
-                    if (inference.op != Inference.OP._I)
+                    if (inference.op != Inference.OP.Ignore)
                     {
                         DrawOneSideInput(inference, false);
                     }

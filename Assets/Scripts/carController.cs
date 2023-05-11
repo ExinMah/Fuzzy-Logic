@@ -10,7 +10,8 @@ public class carController : MonoBehaviour
     public float maxPox = 8.0f;
     public static int hp = 3;
     public static float timeSurvived;
-    public static float timer;
+    public static float playingTimer;
+    public AudioSource source;
 
     Vector3 position;
 
@@ -18,7 +19,7 @@ public class carController : MonoBehaviour
     void Start()
     {
         position = transform.position;
-        timer = 0f;
+        playingTimer = 0f;
     }
 
     // Update is called once per frame
@@ -28,25 +29,25 @@ public class carController : MonoBehaviour
         {
             if (hp == 0)
             {
-                timeSurvived = timer;
+                timeSurvived = playingTimer;
                 AICarMove.previousLifetime = UIManager.score / 100f;
                 UIManager.score = 0;
-                timer = 0f;
+                playingTimer = 0f;
                 AICarMove.lifetime = 0f;
                 PlayerPrefs.SetFloat("previousLifetime", AICarMove.previousLifetime);
                 hp = 3;
                 SceneManager.LoadScene("LostScene");
             }
 
-            timer += Time.deltaTime;
+            playingTimer += Time.deltaTime;
 
-            if (timer > 60f)
+            if (playingTimer > 60f)
                 AICarMove.speedMultiplier = 0.1f;
-            else if (timer > 120f)
+            else if (playingTimer > 120f)
                 AICarMove.speedMultiplier = 0.15f;
-            else if (timer > 180f)
+            else if (playingTimer > 180f)
                 AICarMove.speedMultiplier = 0.2f;
-            else if (timer > 240f)
+            else if (playingTimer > 240f)
                 AICarMove.speedMultiplier = 0.25f;
             else
                 AICarMove.speedMultiplier = 0.3f;
@@ -66,6 +67,7 @@ public class carController : MonoBehaviour
     {
         if (collision.gameObject.tag == "AI Car")
         {
+            source.Play();
             hp -= 1;
             Destroy(collision.gameObject);
         }

@@ -11,9 +11,9 @@ namespace Fuzzy_Logic
         public enum OP
         {
             And = 1, // Take an intersection set of left side input and right side input
-            Or = 2, // Take an union set of left side input and righ side input
-            Not = 3, // Take a supplementary set of left side input
-            _I = 4 // Use left side input and ignore right side input
+            Or = 2, // Take an union set of left side input and right side input
+            Not = 3, // Take a set of left side input
+            Ignore = 4 // Use left side input only
         }
 
         // Editor only gui
@@ -223,7 +223,7 @@ namespace Fuzzy_Logic
                     return 1 - leftSideOutput;
                 }
             }
-            else if (op == OP._I)
+            else if (op == OP.Ignore)
             {
                 float leftSideOutput = LeftSideOutput();
                 if (leftSideOutput < 0)

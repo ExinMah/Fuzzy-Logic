@@ -188,24 +188,6 @@ namespace Fuzzy_Logic.Editor
                             GUIUtils.GLDrawShape(GL.LINES, () =>
                             {
                                 GL.Color(trapezoid.color);
-                                /*
-                                  leftBorder
-                                      |p1 ^    p2                 rightBorder
-                                      | *-|----*                      |
-                                      |/  |     \                     |
-                                      *   |      \                    |
-                                     /|   |       \                   |
-                                    /#|   |        \                  |
-                                   /##|   |         \                 |
-                                  *-------o----------*---------------------->
-                                  p0                 p3
-                                 
-                                  Truncate a trapezoid with two vertical lines which are left border and right border.
-                                  Only the part in range of [leftBorder, rightBorder] is displayed.
-                                  In figure above, the triangle filled with "#" will be truncated,
-                                  because of this triangle is at the outside of [leftBorder, rightBorder],
-                                  the other part of trapezoid is reserved.
-                                */
 
                                 Vector2 p0 = trapezoid.FootPointLeftPos(originalPos, xAxisMaxPos, yAxisMaxPos);
                                 Vector2 p1 = trapezoid.PeakPointLeftPos(originalPos, xAxisMaxPos, yAxisMaxPos);

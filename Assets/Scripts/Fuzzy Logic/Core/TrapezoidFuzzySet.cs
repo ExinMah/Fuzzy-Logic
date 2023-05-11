@@ -5,19 +5,6 @@ using UnityEngine;
 
 namespace Fuzzy_Logic
 {
-    // A Trapezoid
-    //      *----*
-    //     /      \
-    //    /        \
-    //   *----------*
-    //
-    // Degenerate limit to Rectangle
-    //      *----*
-    //      |    |
-    //      |    | 
-    //      *----*
-    //
-    // It means we will never get a up-down flipped trapezoid.
     [Serializable]
     public class TrapezoidFuzzySet
     {
@@ -50,9 +37,6 @@ namespace Fuzzy_Logic
         }
 
         // belong to this defuzzification
-        // If a fuzzyset is in a defuzzification, it must be in a fuzzification. Both defuzzification and fuzzification are the same one.
-        // If a fuzzyset is in a fuzzification, it maybe not in a defuzzification.
-        // So we can check this property to validate whether a fuzzyset is in defuzzification.
         public Defuzzification defuzzification
         {
             get
@@ -106,9 +90,6 @@ namespace Fuzzy_Logic
             }
         }
 
-        //      *-----
-        //     /      \
-        //    /        \
         [SerializeField]
         private float _peakPointLeftValue = 0;
         public float peakPointLeftValue
@@ -141,13 +122,7 @@ namespace Fuzzy_Logic
                 _peakPointLeftValue = value;
             }
         }
-
-        // Only valid in Defuzzification
-        // In Fuzzification, this value is equals to peakPointRight of previous TrapzoidFuzzySet
-        //      -----
-        //     /     \
-        //    /       \
-        //   *
+        
         [SerializeField]
         private float _footPointLeftValue = 0;
         public float footPointLeftValue
@@ -181,9 +156,6 @@ namespace Fuzzy_Logic
             }
         }
 
-        //      ----*
-        //     /     \
-        //    /       \
         [SerializeField]
         private float _peakPointRightValue = 0;
         public float peakPointRightValue
@@ -217,12 +189,6 @@ namespace Fuzzy_Logic
             }
         }
 
-        // Only valid in Defuzzification
-        // In Fuzzification, this value is equals to peakPointleft of next TrapzoidFuzzySet
-        //      -----
-        //     /     \
-        //    /       \
-        //             *
         [SerializeField]
         private float _footPointRightValue = 0;
         public float footPointRightValue
@@ -334,17 +300,7 @@ namespace Fuzzy_Logic
             float posY = originalPos.y + (yValue / 1.0f) * (yAxisMaxPos.y - originalPos.y);
             return new Vector2(posX, posY);
         }
-
-        // A Trapezoid with height 1
-        //      *----* (peakPointValue, 1)         
-        //     /      \
-        //    /        \
-        //   *----------* (footPointValue, 0)
-        //
-        // A Trapezoid with height 0.5
-        //     *------* (o_peakPointValueX, o_peakPointValueY)
-        //    /        \
-        //   *----------*
+        
         public void AdjustPeakPointByHeight(float peakPointValue, float footPointValue, out float o_peakPointValueX, out float o_peakPointValueY)
         {
             Vector2 v = new Vector2(peakPointValue - footPointValue, 1 - 0);

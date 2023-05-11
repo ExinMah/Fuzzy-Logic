@@ -27,8 +27,6 @@ namespace Fuzzy_Logic.Editor
             window.Show();
         }
 
-        #region Generate new GUID
-
         [MenuItem("Window/Fuzzy Logic/New GUID")]
         private static void NewGUID()
         {
@@ -62,10 +60,6 @@ namespace Fuzzy_Logic.Editor
             }
             return false;
         }
-
-        #endregion
-
-        #region All FuzzyLogicEditor Windows
 
         private static List<FuzzyLogicEditor> allFuzzyLogicEditors = new List<FuzzyLogicEditor>();
 
@@ -103,10 +97,6 @@ namespace Fuzzy_Logic.Editor
                 GetFuzzyLogicEditor(i).Focus();
             }
         }
-
-        #endregion
-
-        #region GUI Width and Height of Fuzzification and Defuzzification
 
         // We store gui settings here rather than GUI classes so that user can edit one FuzzyLogic in multi-windows.
 
@@ -161,17 +151,11 @@ namespace Fuzzy_Logic.Editor
                 return _scrollInferences;
             }
         }
-
-        #endregion
-
-        #region focused window by target guid
-
-        // When set forcused target, we can resize window to fit size of gui, now we cache size of window at here.
-        // And restore size of window after remove focused target.
+        
+        // When set forcused target, we can resize window to fit size of gui
         private Rect windowRectForRestoring;
 
-        // Set as guid of fuzzification or defuzzification,
-        // then corresponding gui will be drawed solo so that user can focus on this gui and not to be disturbed by others.
+        // Set as guid of fuzzification or defuzzification, stop display others
         private string _focusedTargetGUID = null;
         public string focusedTargetGUID
         {
@@ -184,8 +168,7 @@ namespace Fuzzy_Logic.Editor
                 }
                 else
                 {
-                    // Don't restore size of window when it's docked,
-                    // otherwise it will break layout of docked windows.
+                    // stop restore size of window when it's docked,
                     if (docked == false)
                     {
                         Rect winRect = position;
@@ -214,7 +197,6 @@ namespace Fuzzy_Logic.Editor
             }
         }
 
-        #endregion
 
         private UndoStack _undoStack = new UndoStack();
         public UndoStack undoStack
@@ -376,9 +358,6 @@ namespace Fuzzy_Logic.Editor
 
             Repaint();
         }
-
-        #region FuzzyLogic data stored on disk
-
         private void RegisterAllFuzzyLogicsOnDisk()
         {
             ForEachFuzzyLogicsOnDisk((fuzzyLogic, filePath) =>
@@ -428,10 +407,6 @@ namespace Fuzzy_Logic.Editor
                 }
             }
         }
-
-        #endregion
-
-        #region EditorGUI of all fuzzyLogics list
 
         private FuzzyLogicSystemList<string> allFuzzyLogicsNames = new FuzzyLogicSystemList<string>();
 
@@ -546,8 +521,6 @@ namespace Fuzzy_Logic.Editor
             fuzzyLogicGUID = allFuzzyLogicsGUIDs[newSelectedIndex];
         }
 
-        #endregion
-
         private void OnFocus()
         {
             focused = true;
@@ -560,16 +533,8 @@ namespace Fuzzy_Logic.Editor
             DeleteTempShortcutsProfile();
         }
 
-        #region Customize shortcuts for Undo/Redo
-
         private const string TEMP_SHORTCUTS_PROFILE_NAME = "FuzzyLogicTemp";
-
-        // We cann't do undo/redo actions with a very high frequency.
-        // This is not to limit users, but to avoid error in logic.
-        // Because of OnGUI is invoked multi-times in one frame,
-        // without this, when users press shortcuts of undo/redo once,
-        // undo/redo actions will also be execute multi-times.
-        // So we should add a gap between two undo/redo actions.
+        
         private double undoRedoTime = 0;
 
         private void UndoRedo()
@@ -623,7 +588,6 @@ namespace Fuzzy_Logic.Editor
             }
 
             // Register normal undo/redo shortcuts to actions that without side effect.
-            // Otherwise, we will hear beep sound when press undo/redo shortcuts.
             {
                 KeyCombination keyCombination = new KeyCombination(KeyCode.Z, ShortcutModifiers.Action);
                 ShortcutManager.instance.RebindShortcut("Main Menu/Edit/Select Prefab Root", new ShortcutBinding(keyCombination));
@@ -646,7 +610,5 @@ namespace Fuzzy_Logic.Editor
                 }
             }
         }
-
-        #endregion
     }
 }

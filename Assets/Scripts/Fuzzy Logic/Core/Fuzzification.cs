@@ -180,7 +180,7 @@ namespace Fuzzy_Logic
             rightShoulder.footPointRightValue = MaxValue();
             rightShoulder.peakPointLeftValue = MaxValue() - maxValue * 0.2f;
 
-            // Update automaticllay
+            // Auto update
             leftShoulder.limitedValue = true;
             rightShoulder.limitedValue = true;
             leftShoulder.UpdateFootPointValue();

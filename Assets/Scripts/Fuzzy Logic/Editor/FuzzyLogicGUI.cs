@@ -20,7 +20,6 @@ namespace Fuzzy_Logic.Editor
         }
 
         // Which editorWindow is drawing gui of this fuzzyLogic.
-        // If a fuzzyLogic is not opened in editorWindow, this property should be null.
         private FuzzyLogicEditor _editorWindow = null;
         public FuzzyLogicEditor editorWindow
         {
@@ -207,8 +206,7 @@ namespace Fuzzy_Logic.Editor
             }
         }
 
-        #region V Separator
-
+        // vertical saperator - between defuzz and inference
         private Rect defuzzificationRect;
         private Rect vSeparatorRect;
         private bool vIsDragging = false;
@@ -263,10 +261,7 @@ namespace Fuzzy_Logic.Editor
             }
         }
 
-        #endregion
-
-        #region H Separator
-
+        // Horizontal separator - between fuzzification and defuzz/inference
         private Rect fuzzificationsRect;
         private Rect hSeparatorRect;
         private bool hIsDragging = false;
@@ -320,7 +315,5 @@ namespace Fuzzy_Logic.Editor
                 }
             }
         }
-
-        #endregion
     }
 }

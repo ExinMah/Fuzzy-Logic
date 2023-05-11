@@ -5,13 +5,10 @@ using System;
 
 namespace Fuzzy_Logic
 {
-	// In fuzzy logic system, we can predict the size of list is fixed and changed infrequently.
-	// Using FlsList, memory allocation is minimized.
 	public class FuzzyLogicSystemList<T>
 	{
 		public delegate int CompareFunc(T left, T right);
 		
-		// How many recyclable buffers can be stored
 		public int recyclableBuffersCapacity
 		{
 			set

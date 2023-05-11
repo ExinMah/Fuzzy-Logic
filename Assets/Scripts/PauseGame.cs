@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PauseGame : MonoBehaviour
 {
+    public TextMeshProUGUI text;
     public static bool gameIsPaused;
     void Update()
     {
@@ -19,10 +21,12 @@ public class PauseGame : MonoBehaviour
         if(gameIsPaused)
         {
             Time.timeScale = 0f;
+            text.gameObject.SetActive(true);
         }
-        else 
+        else
         {
             Time.timeScale = 1;
+            text.gameObject.SetActive(false);
         }
     }
 }

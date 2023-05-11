@@ -21,6 +21,17 @@ public class carSpawner : MonoBehaviour
     {
         if (!PauseGame.gameIsPaused)
         {
+            if (carController.playingTimer > 45f)
+                delayTimer = 0.9f;
+            else if (carController.playingTimer > 90f)
+                delayTimer = 0.8f;
+            else if (carController.playingTimer > 135f)
+                delayTimer = 0.7f;
+            else if (carController.playingTimer > 180f)
+                delayTimer = 0.6f;
+            else
+                delayTimer = 0.5f;
+            
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
